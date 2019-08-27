@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { MenuItem } from './MenuItem';
-import breakpoints from '../../../../../../shared/breakpoints.json';
+import breakpoints from '../../../../../shared/breakpoints.json';
 
 import styles from './SubMenu.module.scss';
 import { IMenuitem } from '../../../model';
@@ -16,7 +16,7 @@ export interface IState {
   subMenuAlign: string;
 }
 class SubMenu extends React.Component<IProps, IState> {
-  subMenuRef: HTMLUListElement = null;
+  subMenuRef!: HTMLUListElement;
   state = {
     subMenuAlign: 'left'
   };

@@ -13,8 +13,12 @@ export interface IState {
 }
 
 class DesktopNavigation extends React.Component<IProps, IState> {
-  timeOutIdEnter: NodeJS.Timeout;
-  timeOutIdLeave: NodeJS.Timeout;
+  timeOutIdEnter!: number;
+  timeOutIdLeave!: number;
+
+  state = {
+    activeNavItem: ''
+  }
 
   handleMouseEnter = (label: string) => () => {
     if (this.timeOutIdLeave) {
@@ -32,7 +36,7 @@ class DesktopNavigation extends React.Component<IProps, IState> {
     }
 
     this.timeOutIdLeave = setTimeout(() => {
-      this.setState({ activeNavItem: null });
+      this.setState({ activeNavItem: '' });
     }, 500);
   };
 
@@ -41,7 +45,9 @@ class DesktopNavigation extends React.Component<IProps, IState> {
   };
 
   render() {
+
     const { navItems } = this.props;
+    console.log(navItems);
     return (
       <div className={styles.navContainer}>
         {/* TODO: can get menu label from AEM component */}

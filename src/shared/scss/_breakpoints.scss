@@ -1,8 +1,8 @@
 // @import '../breakpoints.json';
 
-$desktop: "996px";
-$tablet: "768px";
-$mobile: "767px";
+$desktop: 996px;
+$tablet: 768px;
+$mobile: 767px;
 
 @mixin breakpoint($point) {
     @if $point==desktop {
@@ -10,7 +10,7 @@ $mobile: "767px";
             @content ;
         }
     }
-    
+
     @else if $point==tabletold {
         @media (min-width: $tablet) and (max-width: 995px) {
             @content ;

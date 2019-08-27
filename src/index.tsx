@@ -1,18 +1,22 @@
-import * as React from "react";
-import { render } from "react-dom";
-import { DesktopNavigation } from "./DesktopNavigation";
+import * as React from 'react';
+import { render } from 'react-dom';
+import { DesktopNavigation } from './Components/DesktopNavigation';
 
-import "./styles.css";
+import './styles.css';
+
+import contract from './Components/DesktopNavigation/__test__/contract.json';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-      <DesktopNavigation />
+      <header className="Header">
+        <h1>Hello CodeSandbox</h1>
+        <h2>Start editing to see some magic happen!</h2>
+      </header>
+      <DesktopNavigation {...contract} />
     </div>
   );
 }
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 render(<App />, rootElement);

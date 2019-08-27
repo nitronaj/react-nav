@@ -13,15 +13,7 @@ export interface IProps extends INavItem {
   onMouseLeave: () => void;
 }
 
-const MenuBarItem = ({
-  label,
-  link: url,
-  menuItems,
-  tabIndex,
-  isExpanded,
-  onMouseEnter,
-  onMouseLeave
-}: IProps) => (
+const MenuBarItem = ({ label, link: url, menuItems, tabIndex, isExpanded, onMouseEnter, onMouseLeave }: IProps) => (
   <li
     key={`${label}-${url}`}
     role="none"
@@ -29,9 +21,10 @@ const MenuBarItem = ({
     onMouseEnter={onMouseEnter(label)}
     onMouseLeave={onMouseLeave}
   >
+
     <a
       role="menuitem"
-      aria-haspopup={!!(menuItems && menuItems.length > 0)}
+      aria-haspopup={menuItems && menuItems.length > 0}
       aria-expanded={isExpanded}
       href={url}
       className={styles.navItem}
@@ -41,7 +34,8 @@ const MenuBarItem = ({
       {label}
       {/* <Chevron className={styles.chevron} /> */}
     </a>
-    <SubMenu label={label} menuItems={menuItems} isExpanded={isExpanded} />
+
+    {menuItems && menuItems.length > 0 && <SubMenu label={label} menuItems={menuItems} isExpanded={isExpanded} />}
   </li>
 );
 

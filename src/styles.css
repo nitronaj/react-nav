@@ -1,4 +1,9 @@
 .App {
   font-family: sans-serif;
+  font-size: 12px;
+}
+
+
+.Header {
   text-align: center;
 }

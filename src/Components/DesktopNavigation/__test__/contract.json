@@ -1,0 +1,134 @@
+{
+  "resourceType": "qbr/components/structure/navigation",
+  "navItems": [
+    {
+      "label": "Flying benefits",
+      "menuItems": [
+        {
+          "label": "Earn points flying",
+          "description": "Earn 0.5 Qantas Points on vehicle servicing, workshop, washes and in-store parts.",
+          "url": "/.html"
+        },
+        {
+          "label": "Save on flights",
+          "description": "Greater savings on flights and extra points are offered at each of the 3 membership levels",
+          "url": "/.html"
+        },
+        {
+          "label": "Save on Qantas Lounge",
+          "description": "Lorem ipsum dolor sit amen consectetur adipiscing elit aliquam dignissim",
+          "url": "/.html"
+        },
+        {
+          "label": "Reasons to fly Qantas",
+          "description": "Cros imperdiet tempus lectus non aliquet Inte ger turpis est. convallis quis felis at",
+          "url": "/.html"
+        }
+      ]
+    },
+    {
+      "label": "Points on expresses",
+      "menuItems": [
+        {
+          "label": "Earn on expenses",
+          "url": "/.html"
+        },
+        {
+          "label": "Points calculator",
+          "description": "Find out how much you can earn",
+          "url": "/.html"
+        },
+        {
+          "label": "Earn points flying",
+          "description": "Businesses earn points on flights [on top of the points travellers earn)",
+          "url": "/.html"
+        }
+      ]
+    },
+    {
+      "label": "Use Points",
+      "menuItems": [
+        {
+          "label": "Transfer points",
+          "description": "Transfer your business' Qantas Points to any Qantas Frequent Flyer account",
+          "url": "/.html"
+        },
+        {
+          "label": "Flights and upgrade",
+          "description": "Use points to book flights and upgrades",
+          "url": "/.html"
+        },
+        {
+          "label": "More ways to use points",
+          "description": "Use on wine. hotels, care hire and more",
+          "url": "/.html"
+        }
+      ]
+    },
+    {
+      "label": "Manage travel",
+      "menuItems": [
+        {
+          "label": "Booking tools",
+          "description": "Easily book and manage business travel",
+          "url": "/.html"
+        }
+      ]
+    },
+    {
+      "label": "News",
+      "menuItems": [
+        {
+          "label": "Exclusive offers",
+          "description": "All the latest member offers",
+          "url": "/.html"
+        },
+        {
+          "label": "Program updates",
+          "description": "See what's new",
+          "url": "/.html"
+        },
+        {
+          "label": "Business tips",
+          "description": "Tips to help run your business better",
+          "url": "/.html"
+        },
+        {
+          "label": "Member stories",
+          "description": "Inspirational stories from our members",
+          "url": "/.html"
+        }
+      ]
+    },
+    {
+      "label": "Support",
+      "menuItems": [
+        {
+          "label": "FAQs",
+          "description": "Get answers to commonly asked questions",
+          "url": "/.html"
+        },
+        {
+          "label": "Contact us",
+          "description": "Email, live chat or call us. We're happy to help",
+          "url": "/.html"
+        }
+      ]
+    }
+  ],
+  "header": {
+    "logo": "/content/dam/qbr/logos/QBR-logo.svg",
+    "logoLink": "/",
+    "logoId": "nav-null",
+    "btn1Label": "Join",
+    "btn1Link": "/.html",
+    "btn1Id": "nav-Join",
+    "btn2Label": "Login",
+    "btn2Link": "/.html",
+    "btn2Id": "nav-Login",
+    "externalLink": {
+      "id": "nav-null"
+    },
+    "resourceType": "qbr/components/structure/header"
+  }
+}
