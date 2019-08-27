@@ -1,0 +1,173 @@
+@import 'colours';
+@import 'breakpoints';
+@import 'typography';
+
+/* Increase specificity to override AEM component CSS. */
+:global .contentTabs {
+  .tabs {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    font-family: $global-font-family;
+    position: relative;
+  }
+
+  .tabs .tabs__header {
+    align-self: center;
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .tabs > [role='tablist'] {
+    display: flex;
+    overflow-x: auto;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    padding-top: 4px;
+
+    @include breakpoint(tablet) {
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .tab__scroll-content {
+      position: relative;
+      display: flex;
+      flex: 1 0 auto;
+      transform: none;
+
+      [role='tab'] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+        z-index: 1;
+        color: $color-charcoal;
+        background-color: transparent;
+        border: none;
+        -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+        padding: 20px 20px;
+        line-height: 28px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 4px;
+        width: auto;
+        margin: 0 7.5px;
+
+        @include breakpoint(tablet) {
+          flex-shrink: 1;
+          margin: 0 15px;
+          width: 219px;
+          padding: 20px 30px;
+        }
+
+        &:first-child {
+          margin-left: 20px;
+
+          @include breakpoint(tablet) {
+            margin-left: 0;
+          }
+        }
+
+        &:last-child {
+          margin-right: 20px;
+
+          @include breakpoint(tablet) {
+            margin-right: 0;
+          }
+        }
+
+        &[aria-selected='true'] {
+          z-index: 3;
+          color: $color-qantas-red;
+          cursor: default;
+
+          &::after {
+            position: absolute;
+            box-sizing: border-box;
+            bottom: 1px;
+            left: 50%;
+            content: '';
+            width: 0;
+            height: 0;
+            border: 13px solid $color-white;
+            border-color: transparent transparent $color-white $color-white;
+            transform-origin: 0 0;
+            transform: translate(-50%, 100%) rotate(-45deg);
+            box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        &.tab__bg-white {
+          background-color: $color-white;
+        }
+
+        &.tab__bg-grey {
+          background-color: $color-ice-white;
+
+          &[aria-selected='true'] {
+            &::after {
+              border-color: transparent transparent $color-ice-white $color-ice-white;
+            }
+          }
+        }
+
+        .tab__offer-label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: $color-bay-blue;
+          font-size: 12px;
+          line-height: 20px;
+          color: $color-charcoal;
+          border-bottom-right-radius: 6px;
+          padding: 0 10px;
+          text-transform: uppercase;
+        }
+        .tab__header {
+          font-weight: bold;
+        }
+
+        .tab__text {
+          display: none;
+
+          @include breakpoint(tablet) {
+            display: block;
+          }
+        }
+      }
+      @include breakpoint(tablet) {
+        justify-content: center;
+      }
+    }
+  }
+
+  .tabs .tabpanel__content {
+		display: flex;
+		flex-wrap: nowrap;
+		position: relative;
+		overflow: hidden;
+
+		& > [role='tabpanel'] {
+			display: block;
+			flex-shrink: 0;
+      font-family: $global-font-family;
+      background: transparent;
+      z-index: 2;
+			opacity: 1;
+			width: 100%;
+			order: -1;
+			transition: opacity 0.8s ease-out;
+
+      &.tabpanel__hidden {
+				height: 0;
+				opacity: 0;
+				order: 1;
+				transition: opacity 0.8s ease-out;
+      }
+    }
+  }
+}

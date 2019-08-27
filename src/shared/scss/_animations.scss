@@ -1,0 +1,19 @@
+$transition-animation: all .3s ease-in;
+
+.transition {
+    transition: $transition-animation;
+}
+
+.linkTransition {
+    transition: all .3s ease-in;
+}
+
+@mixin slideAnimation($transform) {
+    transition: $transition-animation;
+    transform: translateX($transform);
+    z-index: 200;
+}
+
+.borderTransition {
+    transition: border .5s ease-in;
+}

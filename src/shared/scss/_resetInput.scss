@@ -1,0 +1,15 @@
+@mixin resetInput() {
+  appearance: none;
+  font-family: inherit;
+  font-size: $global-font-size;
+  color: auto;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  line-height: 1;
+  text-transform: none;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  text-indent: 0;
+}

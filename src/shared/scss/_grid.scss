@@ -1,0 +1,246 @@
+/* @todo Refactor this whole thing! */
+
+@import "breakpoints";
+
+$small-spacing: 15px;
+$element-spacing: 20px;
+$block-spacing: 30px;
+
+$mobileGutter: 20px;
+$tabletGutter: 20px;
+$tabletGutter: 22px;
+$desktopGutter: 15px;
+
+.col {
+    background-color: pink;
+    float: left;
+    margin-bottom: $small-spacing;
+}
+
+@mixin grid($grid) {
+    @extend .col;
+    @if $grid==1 {
+        @include breakpoint('mobileonly') {
+            width: 280px;
+        }
+        @include breakpoint(tabletold) {
+            width: 724px;
+        }
+        @include breakpoint('desktop') {
+            width: 966px;
+        }
+    }
+    @if $grid==2 {
+        @include breakpoint('mobileonly') {
+            width: 100%;
+        }
+        @include breakpoint(tabletold) {
+            width: 352px;
+        }
+        @include breakpoint('desktop') {
+            width: 468px;
+        }
+    }
+    @else if $grid==3 {
+        @include breakpoint('mobileonly') {
+            width: 100%;
+        }
+        @include breakpoint(tabletold) {
+            width: 228px;
+        }
+        @include breakpoint('desktop') {
+            width: 302px;
+        }
+    }
+    @else if $grid==4 {
+        @include breakpoint('mobileonly') {
+            width: 100%;
+        }
+        @include breakpoint(tabletold) {
+            width: 166px;
+        }
+        @include breakpoint('desktop') {
+            width: 219px;
+        }
+    }
+}
+
+.grid {
+    width: 100%;
+
+    @include breakpoint('mobileonly') {
+        width: calc(100% - (#{$mobileGutter} * 2));
+        margin: 0 $mobileGutter;
+    }
+    @include breakpoint(tabletold) {
+        width: calc(#{$tablet} - (#{$tabletGutter} * 2));
+        margin: 0 $tabletGutter;
+    }
+    @include breakpoint('desktop') {
+        width: calc(#{$desktop} - (#{$desktopGutter} * 2));
+        margin: 0 $desktopGutter;
+    }
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+.gridCol2 {
+    @extend .grid;
+    .col {
+        @include grid(2);
+        margin-right: $small-spacing;
+
+        @include breakpoint(tabletold) {
+            margin-right: $tabletGutter !important;
+        }
+
+        &:nth-child(2n+2) {
+            margin-right: 0;
+            margin-left: $small-spacing;
+            
+            @include breakpoint(tabletold) {
+                margin-left: 0 !important;
+            }
+
+            @include breakpoint(mobileonly) {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+        }
+    }
+}
+
+.gridCol3 {
+    @extend .grid;
+    .col {
+        @include grid(3);
+        margin-right: $small-spacing;
+
+        &:nth-child(3n+2) {
+            margin-right: $small-spacing;
+            margin-left: $small-spacing;
+            
+            @include breakpoint(tabletold) {
+                margin-left: 0 !important;
+                margin-right: $tabletGutter !important;
+
+            }
+            @include breakpoint(mobileonly) {
+                margin-left: 0 !important;
+                margin-right: $small-spacing;
+            }
+        }
+        &:nth-child(3n+3) {
+            margin-right: 0;
+            margin-left: $small-spacing;
+            @include breakpoint(tabletold) {
+                margin-left: 0 !important;
+            }
+
+            @include breakpoint(mobileonly) {
+                margin-left: 0 !important;
+            }
+        }
+    }
+}
+
+.gridCol4 {
+    @extend .grid;
+    .col {
+        @include grid(4);
+        margin-right: $small-spacing;
+
+        &:nth-child(4n+2) {
+            margin-right: $block-spacing;
+            margin-left: $small-spacing;
+
+            @include breakpoint(tabletold) {
+                margin-right: $small-spacing;
+            }
+
+            @include breakpoint(mobileonly) {
+                margin-left: 0;
+            }
+        }
+        &:nth-child(4n+4) {
+            margin-right: 0;
+            margin-left: $small-spacing;
+            @include breakpoint(tabletold) {
+                margin-left: 0;
+            }
+
+            @include breakpoint(mobileonly) {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.containerWrapper {
+    @include breakpoint(mobileonly) {
+        width: 100%;
+        margin: 0 auto;
+    }
+    @include breakpoint(tabletold) {
+        width: $tablet;
+        margin: 0 auto;
+    }
+    @include breakpoint(desktop) {
+        width: $desktop;
+        margin: 0 auto;
+    }
+}
+
+.container {
+    @include breakpoint(mobileonly) {
+        width: calc(100% - 40px);
+        margin: 0 $mobileGutter;
+    }
+    @include breakpoint(tabletold) {
+        width: calc(#{$tablet} - (#{$tabletGutter} * 2));
+        margin: 0 $tabletGutter;
+    }
+    @include breakpoint(desktop) {
+        width: calc(#{$desktop} - (#{$desktopGutter} * 2));
+        margin: 0 $desktopGutter;
+    }
+}
+
+.containerFullWidth {
+    @include breakpoint(mobileonly) {
+        width: calc(100% - 40px);
+        margin: 0 $mobileGutter;
+    }
+    @include breakpoint(tabletold) {
+        width: calc(100% - (#{$tabletGutter} * 2));
+        margin: 0 $tabletGutter;
+    }
+    @include breakpoint(desktop) {
+        width: calc(100% - (#{$desktopGutter} * 2));
+        margin: 0 $desktopGutter;
+    }
+}
+
+body {
+    @include breakpoint(tabletold) {
+        overflow-x: hidden;
+    }
+
+    @include breakpoint(mobileonly) {
+        overflow-x: hidden;
+    }
+}
+
+.clearFix {
+    clear: both;
+}
+
+
+@mixin centeredContainer {
+  max-width: $desktop;
+  margin: auto;
+  padding: 0 20px;  
+}

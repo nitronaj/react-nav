@@ -1,0 +1,43 @@
+@import 'colours';
+@import 'grid';
+
+.navItemLi {
+	color: $color-white;
+	position: relative;
+	flex: auto;
+
+}
+
+.navItem {
+	height: 55px;
+	line-height: 55px;
+	color: $color-white;
+	padding: 0 20px;
+	display: block;
+	cursor: pointer;
+	text-align: center;
+
+	&[aria-expanded="true"] {
+		color: $color-dark-red;
+		background: $color-white;
+		&:hover {
+			color: $color-dark-red;
+			background: $color-white;
+		}
+	}
+
+	&:hover,
+	&:focus {
+		// color: $color-dark-red;
+		// background: white;
+		// transition: all 0.2s ease-in;
+		color: white;
+	}
+}
+
+
+/* .navItemLi:hover .navItem,
+.navItem:focus {
+	color: $color-dark-red;
+	background: white;
+} */

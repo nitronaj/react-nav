@@ -1,0 +1,128 @@
+/* Temporary Hack: See https://jira.qantas.com.au/browse/QBRPLT-1365 for more info. */
+
+:global(body .cmp-carousel) { /* Increase specificity to override AEM component CSS. */
+  &, * {
+    box-sizing: border-box;
+  }
+
+  :global(.cmp-carousel__content) {
+    position: relative;
+    height: 360px;
+    @include breakpoint(tablet) { height: 400px; }
+    @include breakpoint(desktop) { height: 450px; }
+  }
+
+  :global(.cmp-carousel__indicators) {
+    cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    z-index: 4;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(mobileonly) {
+      top: 30px;
+      bottom: auto;
+    }
+  }
+
+  :global(.cmp-carousel__indicator) {
+    background-color: rgba(255,255,255,0.4);
+    margin-left: 0;
+    margin-right: 10px;
+
+    &:focus {
+      outline: 0;
+      border: solid 2px $color-bay-blue;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  :global(.cmp-carousel__indicator--active) {
+    background-color: #fff;
+  }
+
+  :global(.cmp-carousel__action--pause), :global( .cmp-carousel__action--play) {
+    cursor: inherit;
+    background: transparent;
+    border: none;
+    padding: 0;
+    line-height: 0;
+    margin-right: 10px;
+  }
+
+  :global(.cmp-carousel__action--disabled) {
+    display: none;
+  }
+
+  :global(.cmp-carousel__item) {
+    display: block; /* Override display:none set by AEM component CSS. */
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transition: opacity .7s ease-in-out, visibility .7s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  :global(.cmp-carousel__item--active) {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  :global(.cmp-carousel__actions) {
+    $gridContainerIncludingPadding: 996px + 20px + 20px;
+    max-width: $gridContainerIncludingPadding;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+  }
+
+  :global(.cmp-carousel__action--previous), :global(.cmp-carousel__action--next) {
+    display: none;
+    @include breakpoint(desktop) {
+      display: block;
+      opacity: 0;
+      transition: opacity 0.5s;
+      cursor: pointer;
+      z-index: 4;
+      background: none;
+      border: none;
+      padding: 0;
+      align-self: center;
+      position: relative;
+
+      &:focus {
+        outline: 0;
+
+        svg {
+          border-radius: 100%;
+          border: 3px solid $color-bay-blue;
+        }
+      }
+    }
+  }
+
+  :global(.cmp-carousel__action--previous) {
+    left: -48px;
+  }
+
+  :global(.cmp-carousel__action--next) {
+    left: 48px;
+    margin-left: auto;
+  }
+
+  :global(.cmp-carousel__content):hover {
+    :global(.cmp-carousel__action--previous), :global(.cmp-carousel__action--next) {
+      @include breakpoint(desktop) {
+        opacity: 0.8;
+      }
+    }
+  }
+}

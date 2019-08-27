@@ -1,0 +1,14 @@
+@import 'colours';
+// @import 'grid';
+
+// @import '../shared/scss/colours';
+
+.navContainer {
+  background: $color-charcoal;
+  position: relative;
+  color: $color-white;
+}
+
+.nav {
+  @include centeredContainer;
+}
